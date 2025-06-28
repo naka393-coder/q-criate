@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-CREATE | 日常に、最高の「？」を。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the body and fonts */
+        body { 
+            font-family: 'Inter', 'Noto Sans JP', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale; 
+        }
+        /* Smooth scrolling behavior */
+        html { 
+            scroll-behavior: smooth; 
+        }
+        /* Hide page content by default, controlled by JS */
+        .page-content { 
+            display: none; 
+        } 
+        .prose p { 
+            margin-bottom: 1em; 
+        }
+
+        /* Floating animation for background elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Main container for the entire site -->
+    <div id="main-container">
+        <!-- Header section, fixed at the top -->
+        <header id="main-header" class="bg-gray-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50">
+            <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+                <a href="#" data-page="home" class="page-link text-xl font-bold text-white tracking-wider">Q-CREATE</a>
+                <!-- Desktop navigation -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" data-page="services" class="page-link hover:text-cyan-400 transition-colors">事業内容</a>
+                    <a href="#" data-page="works" class="page-link hover:text-cyan-400 transition-colors">制作実績</a>
+                    <a href="#" data-page="company" class="page-link hover:text-cyan-400 transition-colors">会社概要</a>
+                    <a href="#" data-page="recruit" class="page-link hover:text-cyan-400 transition-colors">採用情報</a>
+                    <a href="#" data-page="events" class="page-link hover:text-cyan-400 transition-colors">イベント紹介</a>
+                    <a href="#" data-page="contact" class="page-link hover:text-cyan-400 transition-colors">最終回答</a>
+                </div>
+                <!-- Mobile hamburger button -->
+                <div class="md:hidden">
+                    <button id="hamburger-button" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90">
+                <a href="#" data-page="services" class="page-link block py-2 px-4 text-sm hover:bg-gray-700">事業内容</a>
+                <a href="#" data-page="works" class="page-link block py-2 px-4 text-sm hover:bg-gray-700">制作実績</a>
+                <a href="#" data-page="company" class="page-link block py-2 px-4 text-sm hover:bg-gray-700">会社概要</a>
+                <a href="#" data-page="recruit" class="page-link block py-2 px-4 text-sm hover:bg-gray-700">採用情報</a>
+                <a href="#" data-page="events" class="page-link block py-2 px-4 text-sm hover:bg-gray-700">イベント紹介</a>
+                <a href="#" data-page="contact" class="page-link block py-2 px-4 text-sm hover:bg-gray-700">最終回答</a>
+            </div>
+        </header>
+
+        <main id="main-content-area">
+            <!-- Home Section -->
+            <section id="home" class="page-content min-h-screen flex flex-col justify-center text-center px-4 overflow-hidden relative">
+                 <!-- Decorative background objects -->
+                <div class="absolute inset-0 -z-10">
+                    <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-cyan-500 rounded-full opacity-10 animate-float"></div>
+                    <div class="absolute bottom-1/4 right-1/4 w-48 h-48 border-4 border-gray-600 rounded-lg opacity-20 animate-float" style="animation-delay: 2s;"></div>
+                    <div class="absolute top-20 right-20 w-24 h-24 bg-gray-700 rounded-xl opacity-30 animate-pulse"></div>
+                    <div class="absolute bottom-20 left-20 w-4 h-4 bg-white rounded-full opacity-50 animate-pulse" style="animation-delay: 1s;"></div>
+                </div>
+                
+                <div class="flex-grow flex flex-col items-center justify-center pt-16">
+                    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight">日常に、最高の<span class="text-cyan-400">「？」</span>を。</h1>
+                    <p class="mt-4 text-base sm:text-lg text-gray-400">私たちは物語と体験をデザインする、謎解きプロフェッショナル集団です。</p>
+                    <button data-page="services" class="page-link mt-8 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg transition-colors">私たちの世界を探る</button>
+                </div>
+                
+                <div class="w-full max-w-4xl mx-auto px-4 pb-4">
+                     <!-- Newsroom Section -->
+                    <div class="py-6">
+                        <h2 class="text-lg font-bold text-white tracking-widest mb-4">NEWSROOM</h2>
+                        <div class="text-left bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 space-y-3 text-sm">
+                            <div class="border-b border-gray-700 pb-2"><span class="font-semibold text-cyan-400 mr-3">2025.06.26</span>新作オンライン謎解き『サイバーパンク・エスケープ』リリース決定！</div>
+                            <div class="border-b border-gray-700 pb-2"><span class="font-semibold text-cyan-400 mr-3">2025.06.15</span>夏休み特別企画！横浜の遊園地にて『日常の景色』開催！</div>
+                            <div><span class="font-semibold text-cyan-400 mr-3">2025.05.30</span>企業研修プログラムに「ロジカルシンキングコース」を追加しました。</div>
+                        </div>
+                    </div>
+
+                     <!-- Page navigation buttons -->
+                     <div class="py-6">
+                         <div class="flex flex-wrap justify-center gap-4">
+                             <button data-page="services" class="page-link text-sm bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">事業内容</button>
+                             <button data-page="works" class="page-link text-sm bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">制作実績</button>
+                             <button data-page="company" class="page-link text-sm bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">会社概要</button>
+                             <button data-page="recruit" class="page-link text-sm bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">採用情報</button>
+                         </div>
+                     </div>
+
+                     <!-- FOLLOW US Section -->
+                    <div class="py-6">
+                        <div class="text-center">
+                            <p class="text-white text-xs tracking-widest mb-3">FOLLOW US</p>
+                            <div class="flex justify-center space-x-6">
+                                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                                <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-2.43 0-2.784.011-3.808.06-1.064.049-1.791.218-2.427.465a4.902 4.902 0 00-1.772 1.153 4.902 4.902 0 00-1.153 1.772c-.247.636-.396 1.363-.445 2.427-.049 1.024-.06 1.378-.06 3.808s.011 2.784.06 3.808c.049 1.064.218 1.791.465 2.427a4.902 4.902 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.636.247 1.363.396 2.427.445 1.024.049 1.378.06 3.808.06s2.784-.011 3.808-.06c1.064-.049 1.791-.218 2.427-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.247-.636-.396-1.363-.445-2.427.049-1.024.06-1.378.06-3.808s-.011-2.784-.06-3.808c-.049-1.064-.218-1.791-.465-2.427a4.902 4.902 0 00-1.153-1.772A4.902 4.902 0 0016.135 2.525c-.636-.247-1.363-.396-2.427-.445C12.684 2.011 12.33 2 12 2h.315zM12 4.869a7.131 7.131 0 100 14.262 7.131 7.131 0 000-14.262zM12 16.81a4.81 4.81 0 110-9.62 4.81 4.81 0 010 9.62z" clip-rule="evenodd"></path></svg></a>
+                                 <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- This wrapper holds the content for other pages -->
+            <div id="page-wrapper" class="pt-16">
+                <!-- Services Section -->
+                <section id="services" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6 text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">事業内容</h2>
+                        <p class="text-cyan-400 mb-12">WHAT WE DO</p>
+                        <div class="space-y-12">
+                            <div class="md:flex items-center gap-8">
+                                <img src="https://i.imgur.com/4IFkyuv.png" alt="[体験型謎解きイベントのイメージ画像]" class="w-full md:w-1/2 rounded-lg shadow-lg mb-4 md:mb-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/9ca3af?text=Image+Not+Found';">
+                                <div class="md:w-1/2 text-left">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-2">体験型謎解きイベント</h3>
+                                    <p class="text-sm">街全体、施設、オンライン空間など、あらゆる場所を舞台にした没入感の高いイベントを企画・制作します。参加者は物語の主人公となり、自らの手で謎を解き明かしながら、忘れられない体験を手にします。</p>
+                                </div>
+                            </div>
+                            <div class="md:flex flex-row-reverse items-center gap-8">
+                                <img src="https://i.imgur.com/cu7nfDs.png" alt="[企業研修のイメージ画像]" class="w-full md:w-1/2 rounded-lg shadow-lg mb-4 md:mb-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/9ca3af?text=Image+Not+Found';">
+                                <div class="md:w-1/2 text-left">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-2">謎解き企業研修</h3>
+                                    <p class="text-sm">チームビルディング、論理的思考力、課題発見能力。ビジネスに必要なスキルを、楽しみながら学べる研修プログラムを開発します。貴社の課題や理念に合わせた完全オーダーメイドのコンテンツも提供可能です。</p>
+                                </div>
+                            </div>
+                            <div class="md:flex items-center gap-8">
+                                <img src="https://i.imgur.com/ZDkir4j.png" alt="[デジタルプラットフォームのイメージ画像]" class="w-full md:w-1/2 rounded-lg shadow-lg mb-4 md:mb-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/9ca3af?text=Image+Not+Found';">
+                                <div class="md:w-1/2 text-left">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-2">デジタル謎解きプラットフォーム</h3>
+                                    <p class="text-sm">いつでも、どこでも、誰でも謎解きが楽しめる。それが私たちのプラットフォーム「Q-Base」です。LINEやWebブラウザで手軽に遊べるショート謎から、映像や音声と連動した本格的なミステリーまで、多様なデジタルコンテンツを配信しています。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Works Section -->
+                <section id="works" class="page-content py-16">
+                    <div class="container mx-auto px-4 sm:px-6 text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">制作実績</h2>
+                        <p class="text-cyan-400 mb-8">OUR WORKS</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div id="ancient-city-poster" class="bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer transform hover:scale-105 transition-transform"><img src="https://i.imgur.com/s9RUxrs.png" alt="[失われた古代都市のポスター]" class="w-full h-auto object-cover aspect-[3/4]" onerror="this.onerror=null;this.src='https://placehold.co/300x400/1f2937/9ca3af?text=Image';"><div class="p-4"><h3 class="font-bold text-white text-sm sm:text-base">失われた古代都市</h3></div></div>
+                            <div id="cyberpunk-poster" class="bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer transform hover:scale-105 transition-transform"><img src="https://i.imgur.com/wBrWj0X.png" alt="[サイバーパンク・エスケープのポスター]" class="w-full h-auto object-cover aspect-[3/4]" onerror="this.onerror=null;this.src='https://placehold.co/300x400/1f2937/9ca3af?text=Image';"><div class="p-4"><h3 class="font-bold text-white text-sm sm:text-base">サイバーパンク・エスケープ</h3></div></div>
+                            <div id="forest-poster" class="bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer transform hover:scale-105 transition-transform"><img src="https://i.imgur.com/EulI9uE.jpeg" alt="[日常の景色のポスター]" class="w-full h-auto object-cover aspect-[3/4]" onerror="this.onerror=null;this.src='https://placehold.co/300x400/1f2937/9ca3af?text=Image';"><div class="p-4"><h3 class="font-bold text-white text-sm sm:text-base">日常の景色</h3></div></div>
+                            <div id="castle-poster" class="bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer transform hover:scale-105 transition-transform"><img src="https://i.imgur.com/6XESYYa.png" alt="[魔王城からの脱出のポスター]" class="w-full h-auto object-cover aspect-[3/4]" onerror="this.onerror=null;this.src='https://placehold.co/300x400/1f2937/9ca3af?text=Image';"><div class="p-4"><h3 class="font-bold text-white text-sm sm:text-base">魔王城からの脱出</h3></div></div>
+                        </div>
+                        <div class="max-w-3xl mx-auto text-left leading-relaxed prose prose-invert text-sm sm:text-base mt-12">
+                            <p>3つの事業を柱に、最高の体験を創造します。</p>
+                            <p>BtoBからBtoCまで、幅広いニーズに対応可能です。</p>
+                            <p>かならず、忘れられない体験をお約束します。</p>
+                            <p>いつでもどこでも、最高のエンターテイメントを。</p>
+                            <p>ぎりぎりまで追い詰められる、スリルと興奮。</p>
+                            <p>しんじつにたどり着くのは、選ばれし者のみ。</p>
+                            <p>つぎの主人公は、あなたかもしれない。</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Company Section -->
+                <section id="company" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6 text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">会社概要</h2>
+                        <p class="text-cyan-400 mb-12">COMPANY</p>
+                        <div class="max-w-4xl mx-auto space-y-16">
+                            <div class="md:flex items-center gap-8 bg-gray-800 p-8 rounded-lg">
+                                <img src="https://placehold.co/400x400/f3f4f6/111827?text=CEO" alt="[黒いジャケットを着て穏やかに微笑む30代後半男性の写真]" class="w-32 h-32 md:w-48 md:h-48 rounded-full mx-auto md:mx-0 mb-4 md:mb-0 object-cover flex-shrink-0">
+                                <div class="text-left">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-2">代表挨拶</h3>
+                                    <p class="text-sm mb-4">世界は「？」で満ちています。当たり前だと見過ごしている日常に、少し視点を変えるだけで、無限の面白さが隠されています。我々Q-CREATEは、その「？」を発見する驚きと、解き明かす喜びをエンターテイメントとして提供することで、人々の知的好奇心を刺激し、日常をより豊かなものにすることを目指しています。</p>
+                                    <p class="text-right text-sm">– 代表取締役CEO 九里 瑛人</p>
+                                </div>
+                            </div>
+                             <div class="max-w-2xl mx-auto bg-gray-800 rounded-lg p-6 text-left">
+                                <h3 class="text-xl font-bold text-cyan-400 mb-4 text-center">会社データ</h3>
+                                <table class="w-full text-sm">
+                                    <tbody>
+                                        <tr class="border-b border-gray-700"><td class="py-3 pr-4 font-semibold text-gray-400">会社名</td><td class="py-3">株式会社Q-CREATE</td></tr>
+                                        <tr class="border-b border-gray-700"><td class="py-3 pr-4 font-semibold text-gray-400">代表者</td><td class="py-3">代表取締役CEO 九里 瑛人</td></tr>
+                                        <tr class="border-b border-gray-700"><td class="py-3 pr-4 font-semibold text-gray-400">設立</td><td class="py-3">2023年10月26日</td></tr>
+                                        <tr class="border-b border-gray-700"><td class="py-3 pr-4 font-semibold text-gray-400">所在地</td><td class="py-3">東京都中野区（非公開）</td></tr>
+                                        <tr><td class="py-3 pr-4 align-top font-semibold text-gray-400">事業内容</td><td class="py-3">体験型謎解きイベントの企画・制作<br>企業研修用コンテンツの開発<br>デジタル謎解きプラットフォームの運営</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-8 text-left">
+                                <img src="https://i.imgur.com/cu7nfDs.png" alt="[インタビューのイメージ画像]" class="w-full rounded-lg shadow-lg mb-8" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1f2937/9ca3af?text=Image+Not+Found';">
+                                <h3 class="text-xl font-bold text-cyan-400 mb-6 text-center">代表取締役へのインタビュー</h3>
+                                <div class="space-y-6 text-sm leading-relaxed">
+                                    <div>
+                                        <p class="font-bold text-gray-400">インタビュアー：本日はよろしくお願いいたします。まず、九里さんがQ-CREATEを立ち上げたきっかけについて教えてください。</p>
+                                        <p class="mt-2 pl-4 border-l-2 border-cyan-400"><strong>九里：</strong>よろしくお願いします。きっかけは、子供の頃の原体験にあります。ある日、父親が1枚の紙に暗号を書いて「これが解けたら、おやつのありかを教えてやろう」と言ったんです。単純なシーザー暗号でしたが、アルファベットを一つずつずらして意味のある言葉が浮かび上がった時の衝撃と興奮は、今でも忘れられません。ただの「情報」が「物語」に変わる瞬間を目の当たりにしたんです。この「アハ体験」とも言える瞬間を、もっと多くの人に届けたい。それがQ-CREATEの原点ですね。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-400">インタビュアー：「アハ体験」、ですか。確かに、謎が解けた瞬間の快感は格別です。Q-CREATEが創る謎で、特に大事にしていることは何ですか？</p>
+                                        <p class="mt-2 pl-4 border-l-2 border-cyan-400"><strong>九里：</strong>「物語との融合」です。私たちは単なるパズルメーカーではありません。物語体験をデザインする集団でありたいと思っています。なぜその謎を解く必要があるのか、解いた先に何が待っているのか。その文脈があるからこそ、人は謎に没入できる。例えば、ただ「A=B」という暗号を提示するのではなく、「古代文明の石板に刻まれた、失われた言語を解読する」という物語を与える。それだけで、謎はただの記号から、意味を持つ冒険の鍵へと昇華します。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-400">インタビュアー：なるほど。物語が謎に命を吹き込むのですね。クリエイターとして、アイデアはどのような時に浮かぶのですか？</p>
+                                        <p class="mt-2 pl-4 border-l-2 border-cyan-400"><strong>九里：</strong>日常のあらゆる場面ですね。駅の案内板、レストランのメニュー、雑誌の広告。あらゆるものが謎の素材になり得ます。大事なのは、当たり前を疑う視点を持つことです。「なぜこのデザインなんだろう？」「この言葉の裏にはどんな意図があるんだろう？」と。常に「？」を持ち続けることが、クリエイションの源泉です。しかし、ただ眺めているだけでは不十分です。例えば、一見するとただの風景画に見える絵も、何か違和感を感じる部分があるかもしれない。そういう時、真実を見抜くためには徹底的に読み込むことが大事です。気になる箇所があれば目安として5回以上読み込むことを意識してもらいたいです。一度見ただけでは気づかなかったディテールや、隠されたパターンが見えてくることがあります。この「繰り返しの中から本質を見出す」というプロセスは、良質な謎作りには欠かせませんね。</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-400">インタビュアー：5回以上読み込む…深いですね。それは謎を解く側にも通じる極意かもしれません。最後に、Q-CREATEが目指す今後のビジョンについてお聞かせください。</p>
+                                    <p class="mt-2 pl-4 border-l-2 border-cyan-400"><strong>九里：</strong>私たちの最終的な目標は、「謎解き」を文化にすることです。映画を観たり、本を読んだりするのと同じように、人々が日常的に「謎」に触れ、知的好奇心を満たす。そんな世界を実現したい。そのために、リアルイベントはもちろん、誰もが手軽にアクセスできるデジタルプラットフォームの開発にも力を入れています。そして、謎解きが持つ「課題解決の面白さ」を、企業研修や教育の分野にもっと広げていきたい。論理的に考え、視点を変え、チームで協力して答えに辿り着く。このプロセスは、あらゆる問題解決に応用できる、普遍的なスキルだと信じていますから。Q-CREATEは、これからも最高の「？」を通じて、人々の日常と、世界の課題に、新しい視点を提供し続けます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- Recruit Section -->
+                <section id="recruit" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6 text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">採用情報</h2>
+                        <p class="text-cyan-400 mb-12">RECRUIT</p>
+                        <div class="max-w-3xl mx-auto space-y-8">
+                            <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                <h3 class="font-bold text-cyan-400 text-lg mb-2">謎解きクリエイター</h3>
+                                <p class="text-sm text-gray-400 mb-4">世界を「？」で満たす、物語の設計者。人々の心を揺さぶる物語と、脳を刺激するロジックを編み出す仕事です。</p>
+                                <p class="text-sm font-semibold">求めるスキル:</p>
+                                <ul class="text-sm list-disc list-inside mb-4"><li>物語を構築する創造力</li><li>論理的思考力とパズルデザイン能力</li><li>常識にとらわれない柔軟な発想力</li></ul>
+                            </div>
+                             <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                <h3 class="font-bold text-cyan-400 text-lg mb-2">イベントプランナー</h3>
+                                 <p class="text-sm text-gray-400 mb-4">最高の「体験」を届ける、舞台の演出家。謎解きイベントの企画から運営まで、プロジェクト全体を推進します。</p>
+                                <p class="text-sm font-semibold">求めるスキル:</p>
+                                <ul class="text-sm list-disc list-inside mb-4"><li>プロジェクト管理能力とリーダーシップ</li><li>高いコミュニケーション能力と調整力</li><li>困難な状況でも楽しめるポジティブさ</li></ul>
+                            </div>
+                            <img src="https://i.imgur.com/zWWIrAN.png" alt="[日当たりの良い、開放的なオフィスの写真]" class="w-full rounded-lg shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1f2937/9ca3af?text=Image+Not+Found';">
+                             <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                <h3 class="font-bold text-cyan-400 text-lg mb-2">Webデザイナー / UI・UXデザイナー</h3>
+                                 <p class="text-sm text-gray-400 mb-4">デジタル体験の設計者。WebサイトやアプリのUI/UXデザインを通じて、ユーザーに最高の謎解き体験を提供します。</p>
+                                <p class="text-sm font-semibold">求めるスキル:</p>
+                                <ul class="text-sm list-disc list-inside mb-4"><li>HTML/CSS/JavaScriptに関する基本的な知識</li><li>Figma, Adobe XD等を用いたUIデザイン経験</li><li>ユーザー視点での体験設計能力</li></ul>
+                            </div>
+                            <div class="text-center pt-8">
+                               <img src="https://i.imgur.com/H0cFh1u.png" alt="Q-CREATE公式キャラクター「ナゾッペン」" class="w-48 mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/192x192/1f2937/9ca3af?text=Image';">
+                               <p class="text-white">みんなと一緒に働けることを楽しみにしているよ！<br>謎解き制作会社「Q-CREATE」公式キャラクター「ナゾッペン」</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- Events Section -->
+                <section id="events" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6 text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">イベント紹介</h2>
+                        <p class="text-cyan-400 mb-12">EVENT INTRODUCTION</p>
+                         <div class="max-w-3xl mx-auto space-y-12">
+                            <!-- External Events -->
+                            <div>
+                                 <h3 class="font-bold text-white text-xl mb-6 border-b-2 border-cyan-400 pb-2 inline-block">社外向けイベント</h3>
+                                 <p class="text-sm mb-6">過去に開催し、ご好評をいただいたイベントの一部をご紹介します。</p>
+                                <div class="grid sm:grid-cols-2 gap-6">
+                                    <div id="shibuya-event-card" class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-700 transition-colors">
+                                        <img src="https://i.imgur.com/rLVxgvz.png" alt="[渋谷クロスロード・ミステリーのイベント写真]" class="w-full h-48 object-cover rounded-md mb-3" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                        <h4 class="font-semibold text-cyan-400">渋谷クロスロード・ミステリー</h4>
+                                        <p class="text-xs text-gray-400">2024年 夏</p>
+                                    </div>
+                                    <div id="online-event-card" class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-700 transition-colors">
+                                        <img src="https://i.imgur.com/lZ3KCB5.png" alt="[オンライン・サイバー脱出のイベント写真]" class="w-full h-48 object-cover rounded-md mb-3" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                        <h4 class="font-semibold text-cyan-400">オンライン・サイバー脱出</h4>
+                                        <p class="text-xs text-gray-400">2024年 春</p>
+                                    </div>
+                                     <div id="yokohama-event-card" class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-700 transition-colors">
+                                        <img src="https://i.imgur.com/UBXmpVz.png" alt="[横浜港町ミステリークルーズのイベント写真]" class="w-full h-48 object-cover rounded-md mb-3" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                        <h4 class="font-semibold text-cyan-400">横浜港町ミステリークルーズ</h4>
+                                        <p class="text-xs text-gray-400">2023年 秋</p>
+                                    </div>
+                                    <div id="shinjuku-event-card" class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-700 transition-colors">
+                                        <img src="https://i.imgur.com/u6jdNdV.jpeg" alt="[新宿超高層ビル・インテリジェンスゲームのイベント写真]" class="w-full h-48 object-cover rounded-md mb-3" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                        <h4 class="font-semibold text-cyan-400">新宿超高層ビル・インテリジェンスゲーム</h4>
+                                        <p class="text-xs text-gray-400">2023年 冬</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Internal Events -->
+                            <div>
+                                <h3 class="font-bold text-white text-xl mb-6 border-b-2 border-cyan-400 pb-2 inline-block">社内向けイベント</h3>
+                                <div class="space-y-6">
+                                    <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                        <span class="text-xs font-semibold text-cyan-400">4月</span>
+                                        <h4 data-page="event-detail-ohanami" class="page-link font-bold text-lg mb-2 cursor-pointer hover:text-cyan-300 transition-colors">お花見＆新入社員歓迎謎解き</h4>
+                                        <p class="text-sm">新しい仲間を歓迎する、春のお花見会。ただのお花見では終わりません。公園内に仕掛けられた謎を解きながら交流を深める、Q-CREATE流のウェルカムパーティーです。</p>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                        <span class="text-xs font-semibold text-cyan-400">7月</span>
+                                        <h4 data-page="event-detail-familyday" class="page-link font-bold text-lg mb-2 cursor-pointer hover:text-cyan-300 transition-colors">ファミリーデー特別謎解き</h4>
+                                        <p class="text-sm">社員とそのご家族を会社に招待するファミリーデー。今年は、オフィス全体を舞台にした特別な謎解き『Q-CREATEからの挑戦状』を開催予定です。ご家族のチームワークが試される、特別な一日をお届けします。</p>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                        <span class="text-xs font-semibold text-cyan-400">10月</span>
+                                        <h4 class="font-bold text-lg mb-2">創立記念パーティー</h4>
+                                        <p class="text-sm">会社の誕生日を全社員で祝うパーティー。毎年恒例の「役員からの挑戦状」という名の謎解き大会は、役職関係なく全員が本気で挑む一大イベントです。</p>
+                                    </div>
+                                     <div class="bg-gray-800 rounded-lg p-6 text-left">
+                                        <span class="text-xs font-semibold text-cyan-400">12月</span>
+                                        <h4 data-page="event-detail-bonenkai" class="page-link font-bold text-lg mb-2 cursor-pointer hover:text-cyan-300 transition-colors">大忘年会＆年間MVP表彰式</h4>
+                                        <p class="text-sm">一年の締めくくりは、全社員参加の大忘年会。豪華景品が当たる謎解きBINGOや、その年最も輝いた社員を表彰する「年間謎MVP」の発表で盛り上がります。</p>
+                                    </div>
+                                </div>
+                                <div class="mt-8">
+                                    <h4 class="font-bold text-lg mb-4 text-cyan-400">イベントの様子</h4>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                         <img id="gallery-image-1" src="https://i.imgur.com/WaNtKOE.png" alt="[お花見謎解きの写真1]" class="rounded-md cursor-pointer hover:opacity-80 transition-opacity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                         <img id="gallery-image-2" src="https://i.imgur.com/boxGLnr.png" alt="[お花見謎解きの写真2]" class="rounded-md cursor-pointer hover:opacity-80 transition-opacity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                         <img id="gallery-image-3" src="https://i.imgur.com/UvwBxKm.png" alt="[お花見謎解きの写真3]" class="rounded-md cursor-pointer hover:opacity-80 transition-opacity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1f2937/9ca3af?text=Image';">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <!-- Ohanami Event Detail Page -->
+                <section id="event-detail-ohanami" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6">
+                        <button data-page="events" class="page-link mb-8 text-sm text-cyan-400 hover:text-cyan-300">&lt; イベント紹介一覧へ戻る</button>
+                        <div class="max-w-3xl mx-auto text-center">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">お花見＆新入社員歓迎謎解き</h2>
+                            <p class="text-cyan-400 mb-8">2025年4月5日(土) 開催</p>
+                            <img src="https://i.imgur.com/WaNtKOE.png" alt="[お花見謎解きのイメージ画像]" class="w-full rounded-lg shadow-lg mb-8" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1f2937/9ca3af?text=Image+Not+Found';">
+                            <div class="bg-gray-800 rounded-lg p-8 text-left space-y-8">
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">開催概要</h3>
+                                    <p class="text-sm">桜舞う季節、新しい仲間を歓迎するための特別イベントを開催しました。中野区の哲学堂公園を舞台に、新入社員と既存社員がチームを組み、公園内に隠された「Q-CREATEの桜にまつわる七不思議」という謎に挑戦。謎解きを通じて自然とコミュニケーションが生まれ、チームの絆を深める絶好の機会となりました。</p>
+                                    <ul class="text-sm list-disc list-inside mt-4 pl-4">
+                                        <li>開催場所：哲学堂公園</li>
+                                        <li>参加対象：全従業員</li>
+                                    </ul>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">当日のタイムスケジュール</h3>
+                                    <table class="w-full text-sm">
+                                        <tbody>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">11:00</td><td>現地集合・チーム分け</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">11:30</td><td>開会・CEOより歓迎の挨拶</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">12:00</td><td>チーム対抗謎解きゲームスタート！</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">13:30</td><td>結果発表＆お花見ランチ</td></tr>
+                                            <tr><td class="py-2 pr-4 font-semibold text-gray-400">15:00</td><td>自由解散</td></tr>
+                                        </tbody>
+                                    </table>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">参加した社員の声</h3>
+                                    <div class="space-y-4">
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「入社直後で緊張していましたが、謎解きを通じて先輩方と自然に話すことができ、一気に会社の雰囲気に馴染めました。ランチも美味しかったです！」（25卒・クリエイター職）</p></div>
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「新入社員の意外な発想に助けられる場面も多く、こちらも良い刺激を受けました。桜の下で頭を使うのは、格別に楽しかったです。」（プランナー職・Eさん）</p></div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Family Day Event Detail Page -->
+                <section id="event-detail-familyday" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6">
+                        <button data-page="events" class="page-link mb-8 text-sm text-cyan-400 hover:text-cyan-300">&lt; イベント紹介一覧へ戻る</button>
+                        <div class="max-w-3xl mx-auto text-center">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">ファミリーデー特別謎解き</h2>
+                            <p class="text-cyan-400 mb-8">2025年7月19日(土) 開催</p>
+                            <img src="https://i.imgur.com/omSvfz8.png" alt="[ファミリーデーのイメージ画像]" class="w-full rounded-lg shadow-lg mb-8" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1f2937/9ca3af?text=Image+Not+Found';">
+                            <div class="bg-gray-800 rounded-lg p-8 text-left space-y-8">
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">開催概要</h3>
+                                    <p class="text-sm">日頃社員を支えてくださるご家族の皆様に感謝を込めて、Q-CREATEのオフィスを大公開！今年はオフィス全体を舞台にした「不思議な動物たちと消えたおやつの謎」をテーマに、お子様から大人まで楽しめる謎解きイベントをご用意しました。</p>
+                                    <ul class="text-sm list-disc list-inside mt-4 pl-4">
+                                        <li>開催場所：Q-CREATE本社オフィス</li>
+                                        <li>参加対象：全従業員およびそのご家族</li>
+                                    </ul>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">当日のタイムスケジュール</h3>
+                                    <table class="w-full text-sm">
+                                        <tbody>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">13:00</td><td>受付開始・ウェルカムドリンク</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">13:30</td><td>開会・CEO九里よりご挨拶</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">14:00</td><td>謎解きゲームスタート！</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">15:30</td><td>ゲーム終了・答え合わせ＆解説</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">16:00</td><td>おやつビュッフェ＆懇親会</td></tr>
+                                            <tr><td class="py-2 pr-4 font-semibold text-gray-400">17:00</td><td>閉会</td></tr>
+                                        </tbody>
+                                    </table>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">参加した社員の声</h3>
+                                    <div class="space-y-4">
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「子供がオフィスを探検しながら目を輝かせて謎を解いている姿が見られて、とても嬉しかったです。」（クリエイター職・Aさん）</p></div>
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「普段見られない父親の仕事場を見られて、子供も興奮していました。謎も大人も少し頭を使う良い難易度で、家族で協力して楽しめました。」（プランナー職・Bさん）</p></div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Anniversary Party Event Detail Page (Hidden) -->
+                <section id="event-detail-party" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6">
+                        <button data-page="events" class="page-link mb-8 text-sm text-cyan-400 hover:text-cyan-300">&lt; イベント紹介一覧へ戻る</button>
+                        <div class="max-w-3xl mx-auto text-center">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">創立記念パーティー</h2>
+                            <p class="text-cyan-400 mb-8">2024年10月26日(土) 開催</p>
+                            <img src="https://i.imgur.com/UvwBxKm.png" alt="[創立記念パーティーのイメージ画像]" class="w-full rounded-lg shadow-lg mb-8" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1f2937/9ca3af?text=Image+Not+Found';">
+                            <div class="bg-gray-800 rounded-lg p-8 text-left space-y-8">
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">開催概要</h3>
+                                    <p class="text-sm">株式会社Q-CREATEの創立記念日を祝し、全社員でこれまでの軌跡を振り返り、未来への展望を語り合うパーティーです。一年の感謝を込めて、豪華な食事と共に、この日のためだけに用意されたCEO直々の「挑戦状」という名の超高難易度謎解きで、知力の限界に挑戦します。</p>
+                                    <ul class="text-sm list-disc list-inside mt-4 pl-4">
+                                        <li>開催場所：新宿パークタワーホテル</li>
+                                        <li>参加対象：全従業員</li>
+                                    </ul>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">当日のタイムスケジュール</h3>
+                                    <table class="w-full text-sm">
+                                        <tbody>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">18:00</td><td>受付開始・ウェルカムドリンク</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">18:30</td><td>開宴・CEO挨拶、年間業績レビュー</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">19:00</td><td>CEOからの「挑戦状」謎解きタイム</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">20:00</td><td>結果発表＆豪華景品授与</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">20:30</td><td>懇親会</td></tr>
+                                            <tr><td class="py-2 pr-4 font-semibold text-gray-400">21:30</td><td>閉会</td></tr>
+                                        </tbody>
+                                    </table>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">参加した社員の声</h3>
+                                    <div class="space-y-4">
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「毎年のことながら、CEOの謎は一筋縄ではいかない…！でも、部署の垣根を越えてチームで議論するのが最高に楽しいです。」（クリエイター職・Fさん）</p></div>
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「会社の成長を実感できる素晴らしい一日でした。来年のパーティー、そして来年の謎も今から楽しみです。」（管理部門・Gさん）</p></div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bonenkai Event Detail Page -->
+                <section id="event-detail-bonenkai" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6">
+                        <button data-page="events" class="page-link mb-8 text-sm text-cyan-400 hover:text-cyan-300">&lt; イベント紹介一覧へ戻る</button>
+                        <div class="max-w-3xl mx-auto text-center">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">大忘年会＆年間MVP表彰式</h2>
+                            <p class="text-cyan-400 mb-8">2024年12月20日(金) 開催</p>
+                            <img src="https://i.imgur.com/boxGLnr.png" alt="[大忘年会のイメージ画像]" class="w-full rounded-lg shadow-lg mb-8" onerror="this.onerror=null;this.src='https://placehold.co/800x450/1f2937/9ca3af?text=Image+Not+Found';">
+                            <div class="bg-gray-800 rounded-lg p-8 text-left space-y-8">
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">開催概要</h3>
+                                    <p class="text-sm">一年間の成果を祝い、互いの労をねぎらうための盛大な忘年会。美味しい食事とお酒はもちろん、この日のために作られた特別なチーム対抗謎解きや、年間を通じて最も会社に貢献した「謎」な活躍をした社員を表彰する「年間謎MVP」の発表など、コンテンツが盛りだくさんです。</p>
+                                    <ul class="text-sm list-disc list-inside mt-4 pl-4">
+                                        <li>開催場所：都内ホテル宴会場</li>
+                                        <li>参加対象：全従業員</li>
+                                    </ul>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">当日のタイムスケジュール</h3>
+                                    <table class="w-full text-sm">
+                                        <tbody>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">18:30</td><td>開場・ウェルカムドリンク</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">19:00</td><td>開宴・CEO九里より乾杯の挨拶</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">19:30</td><td>チーム対抗謎解きバトル開始！</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">20:30</td><td>結果発表＆年間謎MVP表彰式</td></tr>
+                                            <tr class="border-b border-gray-700"><td class="py-2 pr-4 font-semibold text-gray-400">21:00</td><td>歓談・謎解きBINGO</td></tr>
+                                            <tr><td class="py-2 pr-4 font-semibold text-gray-400">21:30</td><td>中締め</td></tr>
+                                        </tbody>
+                                    </table>
+                                 </div>
+                                 <div>
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">参加した社員の声</h3>
+                                    <div class="space-y-4">
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「年間MVPに選んでいただき、本当に光栄です。CEOから送られた副賞の『解けない謎』は、まだ解けていませんが…（笑）」（2024年MVP・Cさん）</p></div>
+                                        <div class="bg-gray-700 p-4 rounded-md"><p class="text-sm">「普段あまり話さない他部署のメンバーと謎解きでチームを組むことで、一体感が生まれました。来年こそ優勝したいです！」（管理部門・Dさん）</p></div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact / Final Answer Section -->
+                <section id="contact" class="page-content py-16">
+                     <div class="container mx-auto px-4 sm:px-6 text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">最終回答</h2>
+                        <p class="text-cyan-400 mb-8">FINAL ANSWER</p>
+                        <div id="form-container" class="max-w-lg mx-auto">
+                            <p class="mb-6 text-sm">導き出した最終キーワードをここに入力せよ。</p>
+                            <form id="answer-form">
+                                <div class="mb-4 text-left"><label for="answer" class="block mb-2 text-xs font-medium text-gray-300">キーワード</label><input type="text" id="answer" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg block w-full p-2.5 text-center" placeholder="カタカナ５文字"></div>
+                                <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-lg transition-colors text-sm">送信</button>
+                            </form>
+                        </div>
+                        <div id="twist-message" class="hidden max-w-lg mx-auto bg-gray-700 p-6 rounded-lg text-left">
+                            <h3 class="text-xl sm:text-2xl font-bold text-cyan-400 mb-4">お見事です。</h3>
+                            <p class="leading-relaxed text-sm sm:text-base">
+                                ですが、それは真の答えではありません。<br><br>
+                                『真実』を見つけてください。<br><br>
+                                あなたたちが繰り返し見てきた『景色』の中に真実は隠されています。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!-- Site-wide Footer -->
+        <footer class="bg-gray-900 py-6 border-t border-gray-800 mt-auto">
+            <div class="container mx-auto px-6 text-center text-gray-500 text-xs">
+                <p>&copy; 2025 Q-CREATE Inc. All Rights Reserved.</p>
+                <p class="mt-1">このページはフィクションであり、実在の人物・団体とは一切関係ありません。</p>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modal Windows -->
+    <div id="ancient-city-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">ポスター『失われた古代都市』</h3><div class="text-center"><img src="https://i.imgur.com/s9RUxrs.png" alt="[失われた古代都市の拡大ポスター]" class="w-full max-w-xs mx-auto rounded-md"><p class="text-xs text-gray-500 mt-2">poster_ancient_city.png</p></div></div></div>
+    <div id="cyberpunk-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">ポスター『サイバーパンク・エスケープ』</h3><div class="text-center"><img src="https://i.imgur.com/wBrWj0X.png" alt="[サイバーパンク・エスケープの拡大ポスター]" class="w-full max-w-xs mx-auto rounded-md"><p class="text-xs text-gray-500 mt-2">poster_cyberpunk_escape.png</p></div></div></div>
+    <div id="forest-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">ポスター『日常の景色』</h3><div class="text-center"><img id="forest-image" src="https://i.imgur.com/EulI9uE.jpeg" alt="[日常の景色の拡大ポスター]" class="w-full max-w-xs mx-auto rounded-md"><p class="text-xs text-gray-500 mt-2">poster_everyday_scenery.jpeg</p></div></div></div>
+    <div id="castle-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">ポスター『魔王城からの脱出』</h3><div class="text-center"><img src="https://i.imgur.com/6XESYYa.png" alt="[魔王城からの脱出の拡大ポスター]" class="w-full max-w-xs mx-auto rounded-md"><p class="text-xs text-gray-500 mt-2">poster_demon_castle.png</p></div></div></div>
+    <div id="shibuya-event-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">渋谷クロスロード・ミステリー</h3><div class="text-center"><img src="https://i.imgur.com/rLVxgvz.png" alt="[渋谷クロスロード・ミステリーのイベント写真]" class="w-full rounded-md mb-3"><p class="text-xs text-gray-500 mt-2">event_shibuya.png</p></div></div></div>
+    <div id="online-event-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">オンライン・サイバー脱出</h3><div class="text-center"><img src="https://i.imgur.com/lZ3KCB5.png" alt="[オンライン・サイバー脱出のイベント写真]" class="w-full rounded-md mb-3"><p class="text-xs text-gray-500 mt-2">event_online_cyber.png</p></div></div></div>
+    <div id="yokohama-event-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">横浜港町ミステリークルーズ</h3><div class="text-center"><img src="https://i.imgur.com/UBXmpVz.png" alt="[横浜港町ミステリークルーズのイベント写真]" class="w-full rounded-md mb-3"><p class="text-xs text-gray-500 mt-2">event_yokohama.png</p></div></div></div>
+    <div id="shinjuku-event-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-md w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">新宿超高層ビル・インテリジェンスゲーム</h3><div class="text-center"><img src="https://i.imgur.com/u6jdNdV.jpeg" alt="[新宿超高層ビル・インテリジェンスゲームのイベント写真]" class="w-full rounded-md mb-3"><p class="text-xs text-gray-500 mt-2">event_shinjuku.jpeg</p></div></div></div>
+    <div id="gallery-modal-1" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-lg w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">イベントの様子</h3><div class="text-center"><img src="https://i.imgur.com/WaNtKOE.png" alt="[お花見謎解きの写真1]" class="w-full rounded-md"><p class="text-xs text-gray-500 mt-2">[04ohanami.jpg]</p></div></div></div>
+    <div id="gallery-modal-2" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-lg w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">イベントの様子</h3><div class="text-center"><img src="https://i.imgur.com/boxGLnr.png" alt="[お花見謎解きの写真2]" class="w-full rounded-md"><p class="text-xs text-gray-500 mt-2">[12award.jpg]</p></div></div></div>
+    <div id="gallery-modal-3" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"><div class="bg-gray-800 rounded-lg p-6 max-w-lg w-full relative"><button class="modal-close-btn absolute top-2 right-4 text-gray-400 hover:text-white text-3xl">&times;</button><h3 class="text-xl font-bold text-cyan-400 mb-4">イベントの様子</h3><div class="text-center"><img src="https://i.imgur.com/UvwBxKm.png" alt="[お花見謎解きの写真3]" class="w-full rounded-md"><p class="text-xs text-gray-500 mt-2">[10party.jpg]</p></div></div></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const mainContainer = document.getElementById('main-container');
+            const pages = document.querySelectorAll('.page-content');
+            const pageLinks = document.querySelectorAll('.page-link');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerButton = document.getElementById('hamburger-button');
+
+            // --- Route Definitions ---
+            const routes = {
+                '#home': 'home',
+                '#services': 'services',
+                '#works': 'works',
+                '#company': 'company',
+                '#recruit': 'recruit',
+                '#events': 'events',
+                '#contact': 'contact',
+                '#ohanami/': 'event-detail-ohanami',
+                '#family-day/': 'event-detail-familyday',
+                '#award/': 'event-detail-bonenkai',
+                '#party/': 'event-detail-party'
+            };
+
+            let isInternalNavigation = false;
+
+            // --- Core Navigation Logic ---
+            function displayPage(pageId) {
+                 mainContainer.style.display = 'block';
+                
+                pages.forEach(page => {
+                    page.style.display = 'none';
+                });
+
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.style.display = pageId === 'home' ? 'flex' : 'block';
+                }
+                
+                if (pageId !== 'home') {
+                    window.scrollTo(0, 0);
+                }
+                
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+            }
+
+            function navigateTo(pageId) {
+                const hash = Object.keys(routes).find(key => routes[key] === pageId);
+                
+                isInternalNavigation = true;
+                window.location.hash = hash || '#home';
+                displayPage(pageId);
+            }
+
+            function handleHashChange() {
+                if (isInternalNavigation) {
+                    isInternalNavigation = false;
+                    return;
+                }
+
+                const hash = window.location.hash || '#home';
+                const pageId = routes[hash];
+                
+                displayPage(pageId || 'home');
+            }
+
+            // --- Event Listeners Setup ---
+            pageLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const pageId = event.currentTarget.dataset.page;
+                    if (pageId) {
+                        navigateTo(pageId);
+                    }
+                });
+            });
+
+            if (hamburgerButton && mobileMenu) {
+                hamburgerButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            window.addEventListener('hashchange', handleHashChange);
+            handleHashChange();
+
+            // --- Puzzle and Modal Logic ---
+            const forestPoster = document.getElementById('forest-poster');
+            const forestModal = document.getElementById('forest-modal');
+            const forestImage = document.getElementById('forest-image');
+            const RELOAD_KEY_FOREST = 'qcreate_forest_reload_count';
+            const MODAL_ACTIVE_KEY_FOREST = 'qcreate_forest_modal_active';
+
+            function openForestModal() {
+                if (!forestImage || !forestModal) return;
+                let count = parseInt(sessionStorage.getItem(RELOAD_KEY_FOREST) || '0', 10);
+                if (count >= 6) { 
+                    forestImage.src = 'https://i.imgur.com/VoQ77Vm.png'; // Updated Image URL
+                    forestImage.alt = '真実を示す画像';
+                } else {
+                    forestImage.src = 'https://i.imgur.com/EulI9uE.jpeg';
+                    forestImage.alt = '日常の景色の拡大ポスター';
+                }
+                forestModal.classList.remove('hidden');
+            }
+
+            if (sessionStorage.getItem(MODAL_ACTIVE_KEY_FOREST) === 'true') {
+                let count = parseInt(sessionStorage.getItem(RELOAD_KEY_FOREST) || '0', 10) + 1;
+                sessionStorage.setItem(RELOAD_KEY_FOREST, count);
+                openForestModal();
+            }
+            
+            if (forestPoster){
+                 forestPoster.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (sessionStorage.getItem(MODAL_ACTIVE_KEY_FOREST) !== 'true') {
+                        sessionStorage.setItem(MODAL_ACTIVE_KEY_FOREST, 'true');
+                        sessionStorage.setItem(RELOAD_KEY_FOREST, '1');
+                    }
+                    openForestModal();
+                });
+            }
+
+            const modalSetups = [
+                { triggerId: 'ancient-city-poster', modalId: 'ancient-city-modal' },
+                { triggerId: 'cyberpunk-poster', modalId: 'cyberpunk-modal' },
+                { triggerId: 'castle-poster', modalId: 'castle-modal' },
+                { triggerId: 'shibuya-event-card', modalId: 'shibuya-event-modal' },
+                { triggerId: 'online-event-card', modalId: 'online-event-modal' },
+                { triggerId: 'yokohama-event-card', modalId: 'yokohama-event-modal' },
+                { triggerId: 'shinjuku-event-card', modalId: 'shinjuku-event-modal' },
+                { triggerId: 'gallery-image-1', modalId: 'gallery-modal-1' },
+                { triggerId: 'gallery-image-2', modalId: 'gallery-modal-2' },
+                { triggerId: 'gallery-image-3', modalId: 'gallery-modal-3' }
+            ];
+
+            modalSetups.forEach(setup => {
+                const trigger = document.getElementById(setup.triggerId);
+                const modal = document.getElementById(setup.modalId);
+                if (trigger && modal) {
+                    trigger.addEventListener('click', () => modal.classList.remove('hidden'));
+                }
+            });
+
+            document.querySelectorAll('.modal-overlay, .modal-close-btn').forEach(el => {
+                 el.addEventListener('click', function(event) {
+                    if (event.target === this || event.target.classList.contains('modal-close-btn')) {
+                        const modal = this.closest('.modal-overlay');
+                        if (modal) {
+                            modal.classList.add('hidden');
+                             if (modal.id === 'forest-modal') {
+                                 sessionStorage.removeItem(RELOAD_KEY_FOREST);
+                                 sessionStorage.removeItem(MODAL_ACTIVE_KEY_FOREST);
+                             }
+                        }
+                    }
+                });
+            });
+            
+            const answerForm = document.getElementById('answer-form');
+            if (answerForm) {
+                const formContainer = document.getElementById('form-container');
+                const twistMessage = document.getElementById('twist-message');
+                const answerInput = document.getElementById('answer');
+                answerForm.addEventListener('submit', (event) => {
+                    event.preventDefault(); 
+                    if (answerInput.value.trim() === 'ナゾッペン') {
+                        if (formContainer) formContainer.classList.add('hidden');
+                        if (twistMessage) twistMessage.classList.remove('hidden');
+                    } else {
+                        if (answerInput) {
+                            answerInput.classList.add('animate-pulse');
+                            answerInput.value = '';
+                            answerInput.placeholder = '違うようだ…';
+                            setTimeout(() => { answerInput.classList.remove('animate-pulse'); }, 1000);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
